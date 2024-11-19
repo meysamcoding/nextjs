@@ -1,7 +1,7 @@
 'use client'
 import { useState, FormEvent } from "react";
 
-export default function Home() {
+export default function Page() {
   const [inputVal, setInputVal] = useState('');
 
 
@@ -19,7 +19,7 @@ export default function Home() {
           value={inputVal}
           onChange={(e) => setInputVal(e.target.value)}
         />
-        <button type="submit"> Grab the Data</button>
+        <button type="submit"> Grab the Data Info</button>
       </form>
 
 
