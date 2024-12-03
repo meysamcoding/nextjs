@@ -1,38 +1,42 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
+interface User {
+  id: number;
+  name: string;
+}
+
 export default function Page() {
-  const [namesList, setNamesList] = useState<any>([]);
-  const [filteredNames, setFilteredNames] = useState<any>([]);
+  const [namesList, setNamesList] = useState([]);
+  const [filteredNames, setFilteredNames] = useState([]);
 
   useEffect(() => {
     const fetchNames = async () => {
       const response = await fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .then(data => setNamesList(data))
-
+        .then(data => setNamesList(data));
+      console.log('meysam', response)
 
     };
-
     fetchNames();
   }, []);
 
 
   const sortNames = () => {
-    const sorted = [...namesList].sort((a: any, b: any) =>
+    const sorted = [...namesList].sort((a: User, b: User) =>
       a.name.localeCompare(b.name)
     );
     setFilteredNames(sorted);
   };
 
   const filterByAlphabet = (alphabet: string) => {
-    const filtered = namesList.filter((user: any) =>
+    const filtered = namesList.filter((user: User) =>
       user.name.toLowerCase().startsWith(alphabet.toLowerCase())
     );
     setFilteredNames(filtered);
   };
-  console.log('meysam', namesList)
 
   return (
 
@@ -48,7 +52,7 @@ export default function Page() {
       </div>
 
       {/* Main Content */}
-      
+
       <div className="py-5 flex-col md:flex-row gap-8">
         {/* Left Side: Buttons */}
         <div className="flex flex-col gap-4">
@@ -82,8 +86,26 @@ export default function Page() {
                 {user.name}
               </li>
             ))}
-           
+
           </ol>
+        </div>
+        <div className="p-8">
+          <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
+          <p className="mt-4">Navigate to the new practice page:</p>
+          <Link href="/practice">
+            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+              Go to Practice Page
+            </button>
+          </Link>
+        </div>
+        <div className="p-8">
+          <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
+          <p className="mt-4">Navigate to the new Comment page:</p>
+          <Link href="/comments">
+            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+              Go to Practice Page
+            </button>
+          </Link>
         </div>
       </div>
     </div>
