@@ -90,7 +90,6 @@ export default function Page() {
           </ol>
         </div>
         <div className="p-8">
-          <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
           <p className="mt-4">Navigate to the new practice page:</p>
           <Link href="/practice">
             <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
@@ -99,7 +98,6 @@ export default function Page() {
           </Link>
         </div>
         <div className="p-8">
-          <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
           <p className="mt-4">Navigate to the new Comment page:</p>
           <Link href="/comments">
             <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
