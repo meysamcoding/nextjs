@@ -105,6 +105,14 @@ export default function Page() {
             </button>
           </Link>
         </div>
+        <div className="p-8">
+          <p className="mt-4">Navigate to the new Post page:</p>
+          <Link href="/post">
+            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
+              Go to Practice Page
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
